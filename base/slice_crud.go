@@ -41,6 +41,5 @@ func test4() {
 		if v == key {
 			fmt.Printf("i: %v\n", i)
 		}
-
 	}
 }
