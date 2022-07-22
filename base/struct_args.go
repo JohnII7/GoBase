@@ -24,11 +24,13 @@ func main() {
 func addr_structFunc(person Person) Person {
 	person.id = -1
 	person.name = "值传递"
-	return person
+	a := *&person
+	return a
 }
 
 func structFunc(person *Person) *Person {
 	person.id = 11
 	person.name = "地址传递"
-	return person
+	a := *&person
+	return a
 }
