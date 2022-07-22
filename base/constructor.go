@@ -22,7 +22,7 @@ func NewPerson(name string, age int) (*Person, error) {
 func main() {
 	person, err := NewPerson("John", 20)
 	if err == nil {
-		fmt.Printf("person: %v\n", person)
+		fmt.Printf("person: %v\n", *person)
 	}
 	if person.age > 18 {
 		fmt.Println("已成年")
