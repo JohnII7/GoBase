@@ -19,5 +19,5 @@ func add_sub() {
 func main() {
 	var i int32 = 100
 	atomic.LoadInt32(&i)
-	fmt.Printf("ri: %v\n", ri)
+	fmt.Printf("ri: %v\n", i)
 }
