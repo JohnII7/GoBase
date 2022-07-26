@@ -25,6 +25,28 @@ func initDB() (err error) {
 	return nil
 }
 
+func insert() {
+	s := "insert into user(username,password)values (?,?)"
+	r, err := db.Exec(s, "John117", "root")
+	if err != nil {
+		fmt.Printf("err: %v\n", err)
+	} else {
+		i, _ := r.LastInsertId()
+		fmt.Printf("i: %v\n", i)
+	}
+}
+
+func insertByParams(username string, password string) {
+	s := "insert into user(username,password)values (?,?)"
+	r, err := db.Exec(s, username, password)
+	if err != nil {
+		fmt.Printf("err: %v\n", err)
+	} else {
+		i, _ := r.LastInsertId()
+		fmt.Printf("i: %v\n", i)
+	}
+}
+
 func main() {
 	/* db, err := sql.Open("mysql", "user:password@/dbname")
 	if err != nil {
@@ -42,5 +64,6 @@ func main() {
 	} else {
 		fmt.Println("连接成功")
 	}
-
+	// insert()
+	insertByParams("郭宏志", "114514")
 }
