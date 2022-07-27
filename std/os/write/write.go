@@ -1,28 +1,29 @@
 package main
 
 import (
-	"fmt"
+	_ "fmt"
 	"os"
 )
 
-func openClose() {
-	/* f, err := os.Open("a.txt")
-	if err != nil {
-		fmt.Println("文件不存在")
-	}
-	fmt.Printf("f.Name(): %v\n", f.Name())
-	f.Close() */
-
-	// 如果文件不存在会创建
-	f, err := os.OpenFile("a1.txt", os.O_RDONLY|os.O_CREATE, 777)
-	if err != nil {
-		fmt.Printf("err: %v\n", err)
-	} else {
-		fmt.Printf("f.Name(): %v\n", f.Name())
-		f.Close()
-	}
+func write() {
+	f, _ := os.OpenFile("test.txt", os.O_RDWR|os.O_APPEND, 0777)
+	f.Write([]byte("GoGo"))
+	f.Close()
 }
 
+func writeString() {
+	f, _ := os.OpenFile("test.txt", os.O_RDWR|os.O_APPEND, 0777)
+	f.WriteString("this is a string")
+	f.Close()
+}
+
+func writeAt() {
+	f, _ := os.OpenFile("test.txt", os.O_RDWR, 0777)
+	f.WriteAt([]byte(", "), 12)
+	f.Close()
+}
 func main() {
-	openClose()
+	// write()
+	// writeString()
+	writeAt()
 }
