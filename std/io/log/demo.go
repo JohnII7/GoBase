@@ -29,6 +29,6 @@ func fatalPrint() {
 
 func main() {
 	logPrint()
-	// panicPrint()
+	panicPrint()
 	fatalPrint()
 }
