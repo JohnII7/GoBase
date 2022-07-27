@@ -15,7 +15,7 @@ func logPrint() {
 }
 
 func panicPrint() {
-	// panic结束后 后面的代码不会在执行
+	// panic结束后, 后面的代码不会在执行, 但是defer会执行
 	defer fmt.Println("panic结束之前的defer")
 	log.Panic("panic exe")
 }
